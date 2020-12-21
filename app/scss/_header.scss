@@ -1,0 +1,78 @@
+.header {
+	background: black;
+	nav {
+		padding: 1.065rem 1.5rem;
+	}
+	&-logo {
+		img {
+			width: 3.875rem;
+			height: 1.0625rem;
+		}
+	}
+
+	&-menu {
+		// mobile menu
+		span {
+			display: block;
+			background: $white;
+			width: 27px;
+			height: 2px;
+			transition: all 0.3s ease-in-out;
+			transform-origin: 3px 1px;
+
+			&:not(:last-child) {
+				margin-bottom: 5px;
+			}
+		}
+
+		&.open {
+			> span:first-child {
+				transform: rotate(45deg);
+			}
+			> span:nth-child(2) {
+				opacity: 0;
+			}
+			> span:last-child {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	&-links {
+		a {
+			font-size: $font-sm;
+			color: $white;
+			position: relative;
+			transition: color 0.3s ease-in-out;
+			&:not(:last-child) {
+				margin-right: 32px;
+			}
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				height: 5px;
+				background: $white;
+				left: 0;
+				right: 0;
+				bottom: -30px;
+				opacity: 0;
+				transition: opacity 0.3s ease-in-out;
+			}
+			&:hover {
+				color: $darkGrey;
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&-cta {
+		font-size: $font-sm;
+		color: $white;
+		transition: opacity 0.3s ease-in-out;
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+}
