@@ -1,0 +1,67 @@
+.hero {
+	min-height: 27.0625rem;
+	@include breakpoint-up(large) {
+		display: flex;
+		flex: 1;
+		display: flex;
+	}
+	&-image {
+		@include breakpoint-up(large) {
+			background-image: url(/img/desktop-image-hero-1.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			display: flex;
+			flex: 2;
+			min-height: 27.1875rem;
+			.slider-btns {
+				display: none;
+			}
+		}
+		position: relative;
+		background-image: url(/img/mobile-image-hero-1.jpg);
+		background-size: cover;
+		background-size: center center;
+		background-repeat: no-repeat;
+		min-height: 22.1875rem;
+	}
+
+	&-text {
+		@include breakpoint-up(large) {
+			position: relative;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			padding: 4.0625rem 3.4375rem;
+			.slider-btns {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+		}
+		@include breakpoint-down(small) {
+			p {
+				padding-bottom: 3.4375rem;
+			}
+			.slider-btns {
+				display: none;
+			}
+		}
+
+		h1 {
+			font-weight: 700;
+			line-height: 1.2;
+			font-size: 1.875rem;
+			color: $black;
+			margin-bottom: 1.25rem;
+		}
+		p {
+			font-size: $font-sm;
+			line-height: 1.5;
+			margin-bottom: 1.125rem;
+		}
+		.shop-now-cta {
+			padding-bottom: 2.625rem;
+		}
+	}
+}

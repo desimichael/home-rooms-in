@@ -1,17 +1,53 @@
 .header {
-	background: black;
+	position: absolute;
+	// background: $veryDarkGrey;
+	width: 100%;
+	z-index: 10000;
+	// HAMBURGER OPEN STYLES
+	&.open {
+		.overlay {
+			display: block;
+		}
+
+		.header-toggle {
+			> span:first-child {
+				transform: rotate(45deg);
+			}
+			> span:nth-child(2) {
+				opacity: 0;
+			}
+			> span:last-child {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	.overlay {
+		opacity: 0;
+		position: fixed;
+		top: 0px;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient($black, transparent);
+	}
+
 	nav {
-		padding: 1.065rem 1.5rem;
+		position: relative;
+		@include breakpoint-up(large) {
+			justify-content: flex-start;
+		}
 	}
 	&-logo {
+		margin-right: 3.75rem;
 		img {
 			width: 3.875rem;
 			height: 1.0625rem;
 		}
 	}
 
-	&-menu {
-		// mobile menu
+	&-toggle {
+		// mobile menu toggle
 		span {
 			display: block;
 			background: $white;
@@ -24,17 +60,23 @@
 				margin-bottom: 5px;
 			}
 		}
+	}
 
-		&.open {
-			> span:first-child {
-				transform: rotate(45deg);
-			}
-			> span:nth-child(2) {
-				opacity: 0;
-			}
-			> span:last-child {
-				transform: rotate(-45deg);
-			}
+	&-menu {
+		position: absolute;
+		width: calc(100% - 3rem);
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 1.5rem;
+		background: $darkGrey;
+		padding: 1.625rem 0px;
+		border-radius: 4px;
+		a {
+			display: block;
+			padding: 0.625rem;
+			font-size: $font-sm;
+			text-align: center;
+			color: $white;
 		}
 	}
 
@@ -60,19 +102,11 @@
 				transition: opacity 0.3s ease-in-out;
 			}
 			&:hover {
-				color: $darkGrey;
+				color: $white;
 				&::before {
 					opacity: 1;
 				}
 			}
-		}
-	}
-	&-cta {
-		font-size: $font-sm;
-		color: $white;
-		transition: opacity 0.3s ease-in-out;
-		&:hover {
-			opacity: 0.75;
 		}
 	}
 }

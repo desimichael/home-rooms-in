@@ -1,0 +1,9 @@
+.about-section {
+	@include breakpoint-down(small) {
+		.about-txt {
+			&-h3 {
+				color: orange;
+			}
+		}
+	}
+}
